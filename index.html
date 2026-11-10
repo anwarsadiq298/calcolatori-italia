@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolatori Online Gratis | Percentuale, Età, BMI, IVA, Sconto</title>
+<meta name="description" content="Calcolatori online gratuiti in italiano: calcolo percentuale, calcolatore età, BMI, scorporo IVA, calcolo sconto e somma orari. Gratis, senza registrazione, funziona da telefono.">
+<meta name="keywords" content="calcolatore percentuale, calcolatore età, calcolo BMI, scorporo IVA, calcolo sconto, calcolatori online gratis">
+<link rel="canonical" href="https://anwarsadiq298.github.io/calcolatori-italia/">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7f9;color:#1a202c;line-height:1.6}
+header{background:#0b5fff;color:#fff;padding:28px 16px;text-align:center}
+header h1{font-size:28px;line-height:1.2}
+header p{opacity:.92;margin-top:8px;font-size:16px}
+main{max-width:760px;margin:0 auto;padding:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tabs button{flex:1 1 30%;min-width:110px;padding:11px 8px;border:1px solid #dbe2ea;background:#fff;border-radius:10px;cursor:pointer;font-size:15px;font-weight:600}
+.tabs button.active{background:#0b5fff;color:#fff;border-color:#0b5fff}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.card h2{font-size:22px;margin-bottom:6px}
+.card p.sub{color:#4a5568;font-size:15px;margin-bottom:16px}
+label{display:block;font-weight:600;margin:12px 0 5px;font-size:15px}
+input,select{width:100%;padding:12px;border:1px solid #cbd5e0;border-radius:9px;font-size:16px;background:#fff}
+button.calc{width:100%;margin-top:16px;padding:13px;background:#0b5fff;color:#fff;border:0;border-radius:10px;font-size:17px;font-weight:700;cursor:pointer}
+.result{margin-top:16px;padding:14px;background:#ebf4ff;border:1px solid #bee3f8;border-radius:10px;font-size:17px;display:none}
+.result strong{font-size:20px}
+.result small{display:block;color:#4a5568;margin-top:4px;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.grid2{grid-template-columns:1fr}header h1{font-size:24px}.tabs button{flex:1 1 45%}}
+.faq h2,.tools-list h2{font-size:21px;margin:18px 0 8px}
+.faq details{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:13px 15px;margin-bottom:9px}
+.faq summary{font-weight:700;cursor:pointer}
+.tools-list ul{list-style:none}
+.tools-list li{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:8px}
+footer{text-align:center;color:#718096;font-size:13px;padding:22px 16px 30px}
+.hidden{display:none}
+.note{font-size:13px;color:#718096;margin-top:10px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Calcolatori Online Gratis","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"it"}
+</script>
+</head>
+<body>
+<header>
+<h1>Calcolatori Online Gratis</h1>
+<p>Percentuale, età, BMI, IVA, sconto e orari — in italiano, gratis e senza registrazione.</p>
+</header>
+<main>
+
+<div class="tabs" role="tablist">
+<button class="active" onclick="showTab('percentuale',this)">% Percentuale</button>
+<button onclick="showTab('eta',this)">🎂 Età</button>
+<button onclick="showTab('bmi',this)">⚖️ BMI</button>
+<button onclick="showTab('iva',this)">🧾 IVA</button>
+<button onclick="showTab('sconto',this)">🏷️ Sconto</button>
+<button onclick="showTab('orari',this)">⏰ Orari</button>
+</div>
+
+<!-- PERCENTUALE -->
+<section class="card" id="tab-percentuale">
+<h2>Calcolo Percentuale</h2>
+<p class="sub">Calcola la percentuale di un numero in pochi secondi.</p>
+<label for="perc-mode">Cosa vuoi calcolare?</label>
+<select id="perc-mode">
+<option value="a">Quanto è il X% di Y? (es. 20% di 150)</option>
+<option value="b">X è che percentuale di Y? (es. 30 è che % di 150)</option>
+<option value="c">Aumento / diminuzione percentuale</option>
+</select>
+<div class="grid2">
+<div><label for="perc-x">Primo numero</label><input id="perc-x" type="number" inputmode="decimal" placeholder="es. 20"></div>
+<div><label for="perc-y">Secondo numero</label><input id="perc-y" type="number" inputmode="decimal" placeholder="es. 150"></div>
+</div>
+<button class="calc" onclick="calcPerc()">Calcola</button>
+<div class="result" id="res-perc"></div>
+<p class="note">Esempio: il 20% di 150 è 30.</p>
+</section>
+
+<!-- ETA -->
+<section class="card hidden" id="tab-eta">
+<h2>Calcolatore Età</h2>
+<p class="sub">Scopri la tua età esatta in anni, mesi e giorni dalla data di nascita.</p>
+<label for="birth">Data di nascita</label>
+<input id="birth" type="date">
+<button class="calc" onclick="calcEta()">Calcola la mia età</button>
+<div class="result" id="res-eta"></div>
+<p class="note">Il calcolo tiene conto degli anni bisestili.</p>
+</section>
+
+<!-- BMI -->
+<section class="card hidden" id="tab-bmi">
+<h2>Calcolo BMI / IMC</h2>
+<p class="sub">Calcola il tuo Indice di Massa Corporea con la classificazione OMS.</p>
+<div class="grid2">
+<div><label for="bmi-peso">Peso (kg)</label><input id="bmi-peso" type="number" inputmode="decimal" placeholder="es. 70"></div>
+<div><label for="bmi-alt">Altezza (cm)</label><input id="bmi-alt" type="number" inputmode="decimal" placeholder="es. 175"></div>
+</div>
+<button class="calc" onclick="calcBmi()">Calcola BMI</button>
+<div class="result" id="res-bmi"></div>
+</section>
+
+<!-- IVA -->
+<section class="card hidden" id="tab-iva">
+<h2>Scorporo IVA</h2>
+<p class="sub">Scorpora l'IVA da un prezzo ivato, o aggiungi l'IVA a un prezzo netto.</p>
+<label for="iva-mode">Operazione</label>
+<select id="iva-mode"><option value="scorpora">Scorpora IVA (da ivato a netto)</option><option value="aggiungi">Aggiungi IVA (da netto a ivato)</option></select>
+<div class="grid2">
+<div><label for="iva-importo">Importo (€)</label><input id="iva-importo" type="number" inputmode="decimal" placeholder="es. 122"></div>
+<div><label for="iva-aliq">Aliquota IVA</label><select id="iva-aliq"><option value="22">22%</option><option value="10">10%</option><option value="5">5%</option><option value="4">4%</option></select></div>
+</div>
+<button class="calc" onclick="calcIva()">Calcola IVA</button>
+<div class="result" id="res-iva"></div>
+<p class="note">Esempio: 122 € con IVA 22% = 100 € netti + 22 € di IVA.</p>
+</section>
+
+<!-- SCONTO -->
+<section class="card hidden" id="tab-sconto">
+<h2>Calcolo Sconto</h2>
+<p class="sub">Calcola il prezzo finale dopo lo sconto e quanto risparmi.</p>
+<div class="grid2">
+<div><label for="sc-prezzo">Prezzo originale (€)</label><input id="sc-prezzo" type="number" inputmode="decimal" placeholder="es. 80"></div>
+<div><label for="sc-perc">Sconto (%)</label><input id="sc-perc" type="number" inputmode="decimal" placeholder="es. 25"></div>
+</div>
+<button class="calc" onclick="calcSconto()">Calcola prezzo scontato</button>
+<div class="result" id="res-sconto"></div>
+</section>
+
+<!-- ORARI -->
+<section class="card hidden" id="tab-orari">
+<h2>Somma e Differenza Orari</h2>
+<p class="sub">Somma o sottrai due orari in formato ore:minuti.</p>
+<label for="or-op">Operazione</label>
+<select id="or-op"><option value="somma">Somma (+)</option><option value="diff">Differenza (−)</option></select>
+<div class="grid2">
+<div><label for="or-a">Primo orario</label><input id="or-a" type="time" value="02:30"></div>
+<div><label for="or-b">Secondo orario</label><input id="or-b" type="time" value="01:45"></div>
+</div>
+<button class="calc" onclick="calcOrari()">Calcola</button>
+<div class="result" id="res-orari"></div>
+</section>
+
+<div class="tools-list">
+<h2>Tutti gli strumenti gratuiti</h2>
+<ul>
+<li><strong>Calcolo percentuale</strong> — percentuale, aumento e diminuzione.</li>
+<li><strong>Calcolatore età</strong> — età esatta in anni, mesi e giorni.</li>
+<li><strong>Calcolo BMI</strong> — indice di massa corporea e classificazione OMS.</li>
+<li><strong>Scorporo IVA</strong> — IVA 22%, 10%, 5% e 4%.</li>
+<li><strong>Calcolo sconto</strong> — prezzo finale e risparmio.</li>
+<li><strong>Somma orari</strong> — somma e differenza di ore e minuti.</li>
+</ul>
+<p style="margin-top:10px;color:#4a5568">Tutti i calcoli avvengono nel tuo browser. Nessun dato viene inviato o salvato. Nessuna registrazione richiesta.</p>
+</div>
+
+<div class="faq">
+<h2>Domande frequenti</h2>
+<details><summary>Questi calcolatori sono davvero gratuiti?</summary><p>Sì, tutti gli strumenti in questa pagina sono gratuiti e senza registrazione.</p></details>
+<details><summary>Come si calcola la percentuale?</summary><p>Per calcolare il X% di Y, fai: Y × X ÷ 100. Esempio: 20% di 150 = 150 × 20 ÷ 100 = 30.</p></details>
+<details><summary>Come si calcola l'età esatta?</summary><p>Si sottrae la data di nascita dalla data di oggi, tenendo conto se il compleanno di quest'anno è già passato o no, e degli anni bisestili.</p></details>
+<details><summary>Come si scorpora l'IVA?</summary><p>Prezzo netto = prezzo ivato ÷ (1 + aliquota). Esempio con IVA 22%: 122 ÷ 1,22 = 100 € netti.</p></details>
+<details><summary>Il BMI come si interpreta?</summary><p>Secondo l'OMS: sotto 18,5 sottopeso, 18,5–24,9 normopeso, 25–29,9 sovrappeso, 30 o più obesità. È un'indicazione generale, non una diagnosi medica.</p></details>
+</div>
+
+</main>
+<footer>
+Calcolatori Online Gratis — Strumenti gratuiti in italiano.<br>
+I risultati sono stime indicative. Per decisioni fiscali o mediche, consulta un professionista.
+</footer>
+<script>
+function showTab(id,btn){
+ document.querySelectorAll('main .card').forEach(c=>c.classList.add('hidden'));
+ document.getElementById('tab-'+id).classList.remove('hidden');
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function fmt(n){return n.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function show(id,html){const e=document.getElementById(id);e.innerHTML=html;e.style.display='block';}
+function calcPerc(){
+ const m=document.getElementById('perc-mode').value;
+ const x=parseFloat(document.getElementById('perc-x').value);
+ const y=parseFloat(document.getElementById('perc-y').value);
+ if(isNaN(x)||isNaN(y)){show('res-perc','Inserisci entrambi i numeri.');return;}
+ if(m==='a'){const r=y*x/100;show('res-perc','<strong>'+fmt(r)+'</strong><small>Il '+x+'% di '+y+' è '+fmt(r)+'.</small>');}
+ if(m==='b'){const r=x/y*100;show('res-perc','<strong>'+fmt(r)+'%</strong><small>'+x+' è il '+fmt(r)+'% di '+y+'.</small>');}
+ if(m==='c'){const r=(y-x)/x*100;const t=r>=0?'aumento':'diminuzione';show('res-perc','<strong>'+fmt(r)+'%</strong><small>Da '+x+' a '+y+': '+t+' del '+fmt(Math.abs(r))+'%.</small>');}
+}
+function calcEta(){
+ const v=document.getElementById('birth').value;
+ if(!v){show('res-eta','Scegli la tua data di nascita.');return;}
+ const b=new Date(v);const now=new Date();
+ if(b>now){show('res-eta','La data di nascita non può essere nel futuro.');return;}
+ let anni=now.getFullYear()-b.getFullYear();
+ let mesi=now.getMonth()-b.getMonth();
+ let giorni=now.getDate()-b.getDate();
+ if(giorni<0){mesi--;const pm=new Date(now.getFullYear(),now.getMonth(),0).getDate();giorni+=pm;}
+ if(mesi<0){anni--;mesi+=12;}
+ const giorniVita=Math.floor((now-b)/86400000);
+ const prossimo=new Date(now.getFullYear(),b.getMonth(),b.getDate());
+ if(prossimo<now) prossimo.setFullYear(now.getFullYear()+1);
+ const mancano=Math.ceil((prossimo-now)/86400000);
+ show('res-eta','<strong>'+anni+' anni, '+mesi+' mesi, '+giorni+' giorni</strong><small>Hai vissuto '+giorniVita.toLocaleString('it-IT')+' giorni. Mancano '+mancano+' giorni al prossimo compleanno.</small>');
+}
+function calcBmi(){
+ const p=parseFloat(document.getElementById('bmi-peso').value);
+ const a=parseFloat(document.getElementById('bmi-alt').value);
+ if(isNaN(p)||isNaN(a)||p<=0||a<=0){show('res-bmi','Inserisci peso e altezza validi.');return;}
+ const m=a/100;const bmi=p/(m*m);
+ let c='';if(bmi<18.5)c='Sottopeso';else if(bmi<25)c='Normopeso';else if(bmi<30)c='Sovrappeso';else c='Obesità';
+ show('res-bmi','<strong>BMI: '+fmt(bmi)+' — '+c+'</strong><small>Peso '+p+' kg, altezza '+a+' cm. Valori OMS: 18,5–24,9 normopeso.</small>');
+}
+function calcIva(){
+ const imp=parseFloat(document.getElementById('iva-importo').value);
+ const aliq=parseFloat(document.getElementById('iva-aliq').value);
+ const mode=document.getElementById('iva-mode').value;
+ if(isNaN(imp)){show('res-iva','Inserisci un importo valido.');return;}
+ if(mode==='scorpora'){const netto=imp/(1+aliq/100);const iva=imp-netto;show('res-iva','<strong>Netto: '+fmt(netto)+' €</strong><small>IVA ('+aliq+'%): '+fmt(iva)+' € — Totale ivato: '+fmt(imp)+' €</small>');}
+ else{const iva=imp*aliq/100;const tot=imp+iva;show('res-iva','<strong>Totale ivato: '+fmt(tot)+' €</strong><small>Netto: '+fmt(imp)+' € + IVA ('+aliq+'%): '+fmt(iva)+' €</small>');}
+}
+function calcSconto(){
+ const pr=parseFloat(document.getElementById('sc-prezzo').value);
+ const pc=parseFloat(document.getElementById('sc-perc').value);
+ if(isNaN(pr)||isNaN(pc)){show('res-sconto','Inserisci prezzo e percentuale di sconto.');return;}
+ const risp=pr*pc/100;const fin=pr-risp;
+ show('res-sconto','<strong>Prezzo finale: '+fmt(fin)+' €</strong><small>Risparmi: '+fmt(risp)+' € ('+pc+'% di sconto su '+fmt(pr)+' €).</small>');
+}
+function calcOrari(){
+ const a=document.getElementById('or-a').value;const b=document.getElementById('or-b').value;
+ const op=document.getElementById('or-op').value;
+ if(!a||!b){show('res-orari','Inserisci entrambi gli orari.');return;}
+ const toMin=s=>{const p=s.split(':');return parseInt(p[0])*60+parseInt(p[1]);};
+ const toStr=m=>{const s=m<0?'-':'';m=Math.abs(m);return s+String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');};
+ const r=op==='somma'?toMin(a)+toMin(b):toMin(a)-toMin(b);
+ show('res-orari','<strong>'+toStr(r)+'</strong><small>'+a+' '+(op==='somma'?'+':'−')+' '+b+' = '+toStr(r)+' (ore:minuti).</small>');
+}
+</script>
+</body>
+</html>
